@@ -8,12 +8,6 @@ _Read this in other languages:_
 [_English_](README.en-US.md),
 [_한국어_](README.ko-KR.md)
 
-标记徽章的源代码:
-
-```
-[![State-of-the-art Shitcode](https://img.shields.io/static/v1?label=State-of-the-art&message=Shitcode&color=7B5804)](https://github.com/trekhleb/state-of-the-art-shitcode)
-```
-
 ## 准则
 
 ### 💩 以一种代码已经被混淆的方式命名变量
