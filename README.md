@@ -5,14 +5,8 @@
 这是一个你的项目应该遵循的垃圾代码书写准则的列表，把称为适当的垃圾代码。
 
 _Read this in other languages:_
-[_English_](README.md),
+[_English_](README.en-US.md),
 [_한국어_](README.ko-KR.md)
-
-## 获取徽章
-
-如果你的仓库遵循垃圾代码书写准则，你应该用下面的"state-of-the-art shitcode" 徽章：
-
-[![State-of-the-art Shitcode](https://img.shields.io/static/v1?label=State-of-the-art&message=Shitcode&color=7B5804)](https://github.com/trekhleb/state-of-the-art-shitcode)
 
 标记徽章的源代码:
 
