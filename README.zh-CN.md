@@ -38,6 +38,26 @@ _Bad 👎🏻_
 let age = 42;
 ```
 
+### 💩 多用拼音命名变量和函数
+
+写拼音多方便，我们要推崇。
+
+_Good 👍🏻_
+
+```javascript
+function hqtpgd(tp) {   //获取图片高度
+  return tp.height;     //图片
+}
+```
+
+_Bad 👎🏻_
+
+```javascript
+function getImageHeight(image) {
+  return image.height;
+}
+```
+
 ### 💩 变量/函数混合命名风格
 
 为不同庆祝一下。
@@ -135,7 +155,37 @@ document.location.search
 )
 ```
 
-### 💩 不要处理错误
+### 💩 不要处理特殊情况
+
+不理代码中的特殊情况，直接把大象塞进冰箱，任其崩溃。
+
+_Good 👍🏻_
+
+```javascript
+function divide(x, y) {
+  return x / y;
+}
+
+console.log(divide(10, 2));
+console.log(divide(10, 0)); // 整个代码都会崩溃
+```
+
+_Bad 👎🏻_
+
+```javascript
+function divide(x, y) {
+  if (y === 0) {
+    console.error("除数不能为0");
+    return null;
+  }
+  return x / y;
+}
+
+console.log(divide(10, 2));
+console.log(divide(10, 0));
+```
+
+### 💩 捕获到错误也不管
 
 无论何时发现错误，都没有必要让任何人知道它。没有日志，没有错误弹框。
 
@@ -145,7 +195,7 @@ _Good 👍🏻_
 try {
   // 意料之外的情况。
 } catch (error) {
-  // tss... 🤫
+  // 嘘... 🤫
 }
 ```
 
@@ -161,9 +211,43 @@ try {
 }
 ```
 
+### 💩 反模块化准则
+
+为什么要使用模块系统来组织您的代码呢？所有的函数和变量都可以在全局范围内定义。
+
+_Good 👍🏻_
+
+```javascript
+let username = "John Doe";
+
+function greet() {
+  console.log(`Hello, ${username}!`);
+}
+
+greet();
+```
+
+_Bad 👎🏻_
+
+```javascript
+// main.js
+import { username } from './user.js';
+import { greet } from './greeting.js';
+
+greet(username);
+
+// user.js
+export const username = 'John Doe';
+
+// greeting.js
+export function greet(username) {
+  console.log(`Hello, ${username}!`);
+}
+```
+
 ### 💩 广泛使用全局变量
 
-全球化的原则。
+全球化的原则。多方便啊全局变量，想用就用。
 
 _Good 👍🏻_
 
@@ -312,6 +396,28 @@ async function someFunction() {
 }
 ```
 
+### 💩 不要使用空格或缩进
+
+这样可以省略不必要的字符，少敲几下键盘，早点下班。
+
+_Good 👍🏻_
+
+```javascript
+let x=5;
+if(x===5){
+console.log("x is 5");
+}
+```
+
+_Bad 👍🏻_
+
+```javascript
+let x = 5;
+if (x === 5) {
+  console.log("x is 5");
+}
+```
+
 ### 💩 混合缩进
 
 避免缩进，因为它们会使复杂的代码在编辑器中占用更多的空间。如果你不喜欢回避他们，那就和他们捣乱。
@@ -346,9 +452,46 @@ fruits.forEach(fruit => {
 })
 ```
 
+### 💩 避免代码风格统一
+
+编写您想要的代码，特别是在一个团队中有多个开发人员的情况下。这是“自由”原则。
+
+_Good 👍🏻_
+
+```javascript
+// A哥写的
+function greet()
+{
+  var str = "Hello!";
+  console.log(str);
+}
+
+// B哥写的
+function sayHi(){
+  let str = "Hi!";
+  console.log(str);
+}
+```
+
+_Bad 👎🏻_
+
+```javascript
+// A哥写的
+function greet(){
+  let str = "Hello!";
+  console.log(str);
+}
+
+// B哥写的
+function sayHi(){
+  let str = "Hi!";
+  console.log(str);
+}
+```
+
 ### 💩 不要锁住你的依赖项
 
-以非受控方式更新每个新安装的依赖项。为什么坚持使用过去的版本，让我们使用最先进的库版本。
+以非受控方式更新每个新安装的依赖项。为什么坚持使用过去的版本，让我们使用最先进的库版本。更新就对了。
 
 _Good 👍🏻_
 
@@ -377,11 +520,7 @@ package-lock.json
 
 ### 💩 不要测试你的代码
 
-这是重复且不需要的工作。
-
-### 💩 避免代码风格统一
-
-编写您想要的代码，特别是在一个团队中有多个开发人员的情况下。这是“自由”原则。
+这是重复且不需要的工作。感觉它能运行它就能运行。
 
 ### 💩 构建新项目不需要 README 文档
 
